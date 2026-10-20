@@ -1,19 +1,30 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-/// Stub package owned by a sibling worker. Custom vector canvas (not PencilKit).
-/// TODO(canvas): implement pen/pencil/fill, riso inks, undo/redo, thumbnail render.
 let package = Package(
     name: "DoodleCanvas",
-    platforms: [.iOS(.v17)],
+    platforms: [
+        .iOS(.v17),
+        .macOS(.v14),
+    ],
     products: [
-        .library(name: "DoodleCanvas", targets: ["DoodleCanvas"]),
+        .library(
+            name: "DoodleCanvas",
+            targets: ["DoodleCanvas"]
+        ),
     ],
     targets: [
-        .target(name: "DoodleCanvas"),
+        .target(
+            name: "DoodleCanvas",
+            path: "Sources/DoodleCanvas"
+        ),
         .testTarget(
             name: "DoodleCanvasTests",
-            dependencies: ["DoodleCanvas"]
+            dependencies: ["DoodleCanvas"],
+            path: "Tests/DoodleCanvasTests",
+            resources: [
+                .copy("Fixtures"),
+            ]
         ),
     ]
 )

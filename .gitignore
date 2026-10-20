@@ -12,8 +12,11 @@ build/
 # Swift Package Manager
 .build/
 .swiftpm/
+**/.build/
+**/.swiftpm/
 Packages/.build/
 **/Package.resolved
+.swift-version
 
 # macOS
 .DS_Store
