@@ -1,0 +1,13 @@
+Target dependency graph (5 targets)
+Target 'AllIncludingTests' in project 'Aggregate'
+➜ Explicit dependency on target 'HabitQuiltDomainTests-product' in project 'HabitQuiltDomain'
+➜ Explicit dependency on target 'HabitQuiltDomainTests-test-runner' in project 'HabitQuiltDomain'
+➜ Explicit dependency on target 'HabitQuiltDomain-product' in project 'HabitQuiltDomain'
+➜ Explicit dependency on target 'HabitQuiltDomain' in project 'HabitQuiltDomain'
+Target 'HabitQuiltDomain-product' in project 'HabitQuiltDomain'
+➜ Explicit dependency on target 'HabitQuiltDomain' in project 'HabitQuiltDomain'
+Target 'HabitQuiltDomainTests-test-runner' in project 'HabitQuiltDomain'
+➜ Explicit dependency on target 'HabitQuiltDomainTests-product' in project 'HabitQuiltDomain'
+Target 'HabitQuiltDomainTests-product' in project 'HabitQuiltDomain'
+➜ Explicit dependency on target 'HabitQuiltDomain' in project 'HabitQuiltDomain'
+Target 'HabitQuiltDomain' in project 'HabitQuiltDomain' (no dependencies)

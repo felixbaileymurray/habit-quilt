@@ -1,0 +1,69 @@
+{
+  "" : {
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitQuiltDomainTests-primary.dia",
+    "emit-module-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitQuiltDomainTests-primary-emit-module.d",
+    "emit-module-diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitQuiltDomainTests-primary-emit-module.dia",
+    "pch" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitQuiltDomainTests-primary-Bridging-header.pch",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitQuiltDomainTests-primary.swiftdeps"
+  },
+  "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/DerivedSources/test_anchor.swift" : {
+    "const-values" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.swiftconstvalues",
+    "dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.d",
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.dia",
+    "index-unit-output-path" : "/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.o",
+    "llvm-bc" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.bc",
+    "object" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.o",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor.swiftdeps",
+    "swiftmodule" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/test_anchor~partial.swiftmodule"
+  },
+  "/workspace/Packages/HabitQuiltDomain/Tests/HabitQuiltDomainTests/DayKeyTests.swift" : {
+    "const-values" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.swiftconstvalues",
+    "dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.d",
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.dia",
+    "index-unit-output-path" : "/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.o",
+    "llvm-bc" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.bc",
+    "object" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.o",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests.swiftdeps",
+    "swiftmodule" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DayKeyTests~partial.swiftmodule"
+  },
+  "/workspace/Packages/HabitQuiltDomain/Tests/HabitQuiltDomainTests/DoodleSchemaTests.swift" : {
+    "const-values" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.swiftconstvalues",
+    "dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.d",
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.dia",
+    "index-unit-output-path" : "/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.o",
+    "llvm-bc" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.bc",
+    "object" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.o",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests.swiftdeps",
+    "swiftmodule" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/DoodleSchemaTests~partial.swiftmodule"
+  },
+  "/workspace/Packages/HabitQuiltDomain/Tests/HabitQuiltDomainTests/HabitTests.swift" : {
+    "const-values" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.swiftconstvalues",
+    "dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.d",
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.dia",
+    "index-unit-output-path" : "/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.o",
+    "llvm-bc" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.bc",
+    "object" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.o",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests.swiftdeps",
+    "swiftmodule" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/HabitTests~partial.swiftmodule"
+  },
+  "/workspace/Packages/HabitQuiltDomain/Tests/HabitQuiltDomainTests/PreservationTests.swift" : {
+    "const-values" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.swiftconstvalues",
+    "dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.d",
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.dia",
+    "index-unit-output-path" : "/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.o",
+    "llvm-bc" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.bc",
+    "object" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.o",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests.swiftdeps",
+    "swiftmodule" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/PreservationTests~partial.swiftmodule"
+  },
+  "/workspace/Packages/HabitQuiltDomain/Tests/HabitQuiltDomainTests/QuiltLayoutTests.swift" : {
+    "const-values" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.swiftconstvalues",
+    "dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.d",
+    "diagnostics" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.dia",
+    "index-unit-output-path" : "/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.o",
+    "llvm-bc" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.bc",
+    "object" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.o",
+    "swift-dependencies" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests.swiftdeps",
+    "swiftmodule" : "/workspace/Packages/HabitQuiltDomain/.build/out/Intermediates.noindex/HabitQuiltDomain.build/Debug-linux-x86_64/HabitQuiltDomainTests-p.build/Objects-normal/x86_64/QuiltLayoutTests~partial.swiftmodule"
+  }
+}
