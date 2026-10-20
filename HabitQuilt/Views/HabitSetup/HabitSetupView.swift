@@ -22,5 +22,6 @@ struct HabitSetupView: View {
         .padding(DesignTokens.Space.lg)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())
+        .hqPaperChrome()
     }
 }

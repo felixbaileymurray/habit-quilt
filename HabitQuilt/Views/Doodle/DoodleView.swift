@@ -75,6 +75,7 @@ struct DoodleView: View {
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())
         .navigationTitle(Copy.doodleTitle.text)
         .navigationBarTitleDisplayMode(.inline)
+        .hqPaperChrome()
         .onAppear {
             store.beginTodayDoodle()
             dotGridVisible = store.doodleDotGridVisible
@@ -94,32 +95,13 @@ struct DoodleView: View {
     private var toolTray: some View {
         HStack(spacing: DesignTokens.Space.sm) {
             ForEach(DrawingToolID.allCases, id: \.self) { tool in
-                Button {
+                HQIconChip(
+                    icon: toolIcon(tool),
+                    isSelected: selectedTool == tool,
+                    accessibilityLabel: toolLabel(tool).text
+                ) {
                     selectedTool = tool
-                } label: {
-                    Text(toolLabel(tool).text)
-                        .font(DesignTokens.TypeScale.caption.weight(.semibold))
-                        .padding(.horizontal, DesignTokens.Space.sm)
-                        .padding(.vertical, DesignTokens.Space.xs)
-                        .background(
-                            selectedTool == tool
-                                ? DesignTokens.PaperUI.accent.opacity(0.2)
-                                : DesignTokens.PaperUI.surface
-                        )
-                        .foregroundStyle(DesignTokens.PaperUI.textPrimary)
-                        .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radius.sm))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: DesignTokens.Radius.sm)
-                                .stroke(
-                                    selectedTool == tool
-                                        ? DesignTokens.PaperUI.accent
-                                        : DesignTokens.PaperUI.border,
-                                    lineWidth: 1
-                                )
-                        )
-                        .draftHighlight()
                 }
-                .buttonStyle(.plain)
             }
             Spacer()
         }
@@ -154,20 +136,21 @@ struct DoodleView: View {
 
     private var editActions: some View {
         HStack(spacing: DesignTokens.Space.sm) {
-            HQButton(title: Copy.doodleUndo, kind: .secondary) {
+            HQIconButton(icon: .undo, accessibilityLabel: Copy.doodleUndo.text) {
                 session.undo()
                 canvasEpoch += 1
             }
             .disabled(!session.canUndo)
-            HQButton(title: Copy.doodleRedo, kind: .secondary) {
+            HQIconButton(icon: .redo, accessibilityLabel: Copy.doodleRedo.text) {
                 session.redo()
                 canvasEpoch += 1
             }
             .disabled(!session.canRedo)
-            HQButton(title: Copy.doodleClear, kind: .secondary) {
+            HQIconButton(icon: .clear, accessibilityLabel: Copy.doodleClear.text) {
                 session.clear()
                 canvasEpoch += 1
             }
+            Spacer()
         }
     }
 
@@ -175,6 +158,13 @@ struct DoodleView: View {
         switch tool {
         case .pen: Copy.doodleToolPen
         case .pencil: Copy.doodleToolPencil
+        }
+    }
+
+    private func toolIcon(_ tool: DrawingToolID) -> HQIcon {
+        switch tool {
+        case .pen: .pen
+        case .pencil: .pencil
         }
     }
 
