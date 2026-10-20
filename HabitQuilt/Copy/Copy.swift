@@ -40,15 +40,18 @@ enum Copy {
     static let doodleTitle = draft("Doodle")
     static let doodleDone = draft("Done")
     static let doodleDotGrid = draft("Dot grid")
-    static let doodlePlaceholder = draft("Drawing canvas arrives with DoodleCanvas package.")
     static let doodlePreservedBanner = draft("This doodle is preserved.")
+    static let doodleToolPen = draft("Pen")
+    static let doodleToolPencil = draft("Pencil")
+    static let doodleUndo = draft("Undo")
+    static let doodleRedo = draft("Redo")
+    static let doodleClear = draft("Clear")
 
     // MARK: - Quilt
 
     static let quiltTitle = draft("Your quilt")
     static let quiltEmpty = draft("Your quilt will grow here.")
     static let quiltHideBlanks = draft("Hide blank days")
-    static let quiltPlaceholder = draft("Quilt grid arrives with HabitQuiltDomain layout.")
 
     // MARK: - Settings
 

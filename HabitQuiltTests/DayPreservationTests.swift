@@ -11,7 +11,7 @@ final class DayPreservationTests: XCTestCase {
         var cal = Calendar(identifier: .gregorian)
         cal.timeZone = TimeZone(secondsFromGMT: 0)!
         calendar = cal
-        clock = DayClock(calendar: cal, timeZone: cal.timeZone, rules: DefaultDayPreservationRules())
+        clock = DayClock(calendar: cal, timeZone: cal.timeZone)
     }
 
     func testEditableWhileSameLocalDay() {
@@ -73,6 +73,15 @@ final class DayPreservationTests: XCTestCase {
         XCTAssertEqual(comps.hour, 0)
         XCTAssertEqual(comps.minute, 0)
         XCTAssertEqual(comps.second, 0)
+    }
+
+    func testDomainPreservationRulesMatchClock() {
+        let now = date(2026, 10, 20, 9, 0)
+        let day = DayKey.parse("2026-10-20", utcOffsetSeconds: 0)!
+        XCTAssertEqual(
+            PreservationRules.editability(of: day, now: now, timeZone: calendar.timeZone),
+            clock.editability(of: "2026-10-20", relativeTo: now)
+        )
     }
 
     private func date(

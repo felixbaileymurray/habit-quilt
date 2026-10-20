@@ -8,6 +8,7 @@ import HabitQuiltDomain
 final class AppStore {
     private(set) var habit: HabitRecord?
     private(set) var todayDay: DayRecord?
+    private(set) var quiltDays: [DayRecord] = []
     var hideBlankDays: Bool = false
     /// Session-only doodle aid; not written into doodle JSON.
     var doodleDotGridVisible: Bool = false
@@ -31,10 +32,19 @@ final class AppStore {
 
     var todayDateString: String { clock.localDateString() }
 
+    var todayDayKey: DayKey { clock.makeDayKey() }
+
     func refresh() {
         do {
             habit = try repository.fetchActiveHabit()
             todayDay = try repository.fetchDay(date: todayDateString)
+            if let habit {
+                let start = clock.localDateString(for: habit.createdAt)
+                let end = todayDateString
+                quiltDays = try repository.fetchDays(from: start, to: end)
+            } else {
+                quiltDays = []
+            }
             if let raw = try repository.getSetting(.hideBlankDays) {
                 hideBlankDays = (raw == "1")
             }
@@ -59,6 +69,7 @@ final class AppStore {
         do {
             try repository.upsertHabit(record)
             habit = record
+            refresh()
         } catch {
             assertionFailure("createHabit failed: \(error)")
         }
@@ -107,16 +118,25 @@ final class AppStore {
         }
     }
 
-    func saveDoodleJSON(_ json: String) {
+    /// Persists portable doodle JSON + optional thumbnail path. Dot-grid is never stored.
+    func saveDoodle(json: String, thumbnailPNG: Data?) {
         guard var day = todayDay else { return }
         guard clock.editability(of: day.date) == .editable else { return }
         day.doodleJSON = json
         day.updatedAt = Date()
+        if let thumbnailPNG {
+            do {
+                day.thumbPath = try ThumbnailStore.savePNG(dayDate: day.date, data: thumbnailPNG)
+            } catch {
+                assertionFailure("thumbnail save failed: \(error)")
+            }
+        }
         do {
             try repository.upsertDay(day)
             todayDay = day
+            refresh()
         } catch {
-            assertionFailure("saveDoodleJSON failed: \(error)")
+            assertionFailure("saveDoodle failed: \(error)")
         }
     }
 
