@@ -32,7 +32,7 @@ struct TodayView: View {
                 HQButton(title: Copy.quiltTitle, kind: .secondary) {
                     path.append(AppRoute.quilt)
                 }
-                HQIconButton(systemName: "gearshape", accessibilityLabel: Copy.settingsTitle.text) {
+                HQIconButton(icon: .settings, accessibilityLabel: Copy.settingsTitle.text) {
                     path.append(AppRoute.settings)
                 }
             }
@@ -42,6 +42,7 @@ struct TodayView: View {
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())
         .navigationTitle("Today")
         .navigationBarTitleDisplayMode(.inline)
+        .hqPaperChrome()
     }
 }
 
@@ -60,5 +61,6 @@ struct NotYetView: View {
         .padding(DesignTokens.Space.lg)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())
+        .hqPaperChrome()
     }
 }

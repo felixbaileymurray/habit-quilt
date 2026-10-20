@@ -11,6 +11,10 @@
 		B20000000000000000000002 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* AppStore.swift */; };
 		B20000000000000000000003 /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* RootNavigation.swift */; };
 		B20000000000000000000004 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* DesignTokens.swift */; };
+		B20000000000000000000013 /* PaperChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000013 /* PaperChrome.swift */; };
+		B20000000000000000000014 /* HQIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000014 /* HQIcon.swift */; };
+		B20000000000000000000015 /* HQIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000015 /* HQIconView.swift */; };
+		B20000000000000000000016 /* LucidePlaceholderPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000016 /* LucidePlaceholderPaths.swift */; };
 		B20000000000000000000005 /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000005 /* Copy.swift */; };
 		B20000000000000000000006 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* Models.swift */; };
 		B20000000000000000000007 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* Migrations.swift */; };
@@ -45,6 +49,10 @@
 		B10000000000000000000002 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		B10000000000000000000003 /* RootNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
 		B10000000000000000000004 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
+		B10000000000000000000013 /* PaperChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperChrome.swift; sourceTree = "<group>"; };
+		B10000000000000000000014 /* HQIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQIcon.swift; sourceTree = "<group>"; };
+		B10000000000000000000015 /* HQIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQIconView.swift; sourceTree = "<group>"; };
+		B10000000000000000000016 /* LucidePlaceholderPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucidePlaceholderPaths.swift; sourceTree = "<group>"; };
 		B10000000000000000000005 /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		B10000000000000000000006 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		B10000000000000000000007 /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migrations.swift; sourceTree = "<group>"; };
@@ -147,8 +155,20 @@
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000004 /* DesignTokens.swift */,
+				B10000000000000000000013 /* PaperChrome.swift */,
+				A1000000000000000000001D /* Icons */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		A1000000000000000000001D /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000014 /* HQIcon.swift */,
+				B10000000000000000000015 /* HQIconView.swift */,
+				B10000000000000000000016 /* LucidePlaceholderPaths.swift */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		A10000000000000000000012 /* Copy */ = {
@@ -370,6 +390,10 @@
 				B20000000000000000000002 /* AppStore.swift in Sources */,
 				B20000000000000000000003 /* RootNavigation.swift in Sources */,
 				B20000000000000000000004 /* DesignTokens.swift in Sources */,
+				B20000000000000000000013 /* PaperChrome.swift in Sources */,
+				B20000000000000000000014 /* HQIcon.swift in Sources */,
+				B20000000000000000000015 /* HQIconView.swift in Sources */,
+				B20000000000000000000016 /* LucidePlaceholderPaths.swift in Sources */,
 				B20000000000000000000005 /* Copy.swift in Sources */,
 				B20000000000000000000006 /* Models.swift in Sources */,
 				B20000000000000000000007 /* Migrations.swift in Sources */,

@@ -82,6 +82,7 @@ struct QuiltView: View {
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())
         .navigationTitle(Copy.quiltTitle.text)
         .navigationBarTitleDisplayMode(.inline)
+        .hqPaperChrome()
         .onAppear {
             store.refresh()
             pinchColumns = CGFloat(columns.rawValue)

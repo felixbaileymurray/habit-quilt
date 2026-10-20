@@ -6,8 +6,8 @@ struct SettingsView: View {
     @State private var isEditingHabit = false
 
     var body: some View {
-        List {
-            Section {
+        ScrollView {
+            VStack(alignment: .leading, spacing: DesignTokens.Space.md) {
                 HQListRow(
                     title: Copy.settingsHabit,
                     subtitle: store.habit.map { DraftString(raw: $0.name) } ?? Copy.habitSetupPlaceholder
@@ -15,20 +15,21 @@ struct SettingsView: View {
                     editingName = store.habit?.name ?? ""
                     isEditingHabit = true
                 }
-            }
 
-            Section {
+                Divider().overlay(DesignTokens.PaperUI.border)
+
                 HQListRow(title: Copy.settingsExport, subtitle: Copy.settingsExportSoon)
                 HQListRow(title: Copy.settingsImport, subtitle: Copy.settingsImportSoon)
                 HQListRow(title: Copy.settingsLastBackup)
-            }
 
-            // TODO(M3): wire export/import zip backup.
+                // TODO(M3): wire export/import zip backup.
+            }
+            .padding(DesignTokens.Space.lg)
         }
-        .scrollContentBackground(.hidden)
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())
         .navigationTitle(Copy.settingsTitle.text)
         .navigationBarTitleDisplayMode(.inline)
+        .hqPaperChrome()
         .sheet(isPresented: $isEditingHabit) {
             NavigationStack {
                 VStack(alignment: .leading, spacing: DesignTokens.Space.md) {
@@ -43,12 +44,35 @@ struct SettingsView: View {
                 .padding(DesignTokens.Space.lg)
                 .background(DesignTokens.PaperUI.background.ignoresSafeArea())
                 .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button(Copy.settingsClose.text) { isEditingHabit = false }
-                    }
+                    closeToolbarItem
                 }
+                .hqPaperChrome()
             }
             .preferredColorScheme(.light)
+        }
+    }
+
+    @ToolbarContentBuilder
+    private var closeToolbarItem: some ToolbarContent {
+        if #available(iOS 26.0, *) {
+            ToolbarItem(placement: .cancellationAction) {
+                HQIconButton(
+                    icon: .close,
+                    accessibilityLabel: Copy.settingsClose.text
+                ) {
+                    isEditingHabit = false
+                }
+            }
+            .sharedBackgroundVisibility(.hidden)
+        } else {
+            ToolbarItem(placement: .cancellationAction) {
+                HQIconButton(
+                    icon: .close,
+                    accessibilityLabel: Copy.settingsClose.text
+                ) {
+                    isEditingHabit = false
+                }
+            }
         }
     }
 }

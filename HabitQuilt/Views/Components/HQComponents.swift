@@ -71,15 +71,13 @@ struct HQButton: View {
 }
 
 struct HQIconButton: View {
-    let systemName: String
+    let icon: HQIcon
     var accessibilityLabel: String
     var action: () -> Void
 
     var body: some View {
         Button(action: action) {
-            Image(systemName: systemName)
-                .font(.body.weight(.semibold))
-                .foregroundStyle(DesignTokens.PaperUI.textPrimary)
+            HQIconView(icon: icon, size: 20)
                 .frame(width: 44, height: 44)
                 .background(DesignTokens.PaperUI.surface)
                 .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radius.sm))
@@ -90,6 +88,43 @@ struct HQIconButton: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(accessibilityLabel)
+    }
+}
+
+/// Compact icon chip (tool trays) — opaque paper, no system glass.
+struct HQIconChip: View {
+    let icon: HQIcon
+    var isSelected: Bool = false
+    var accessibilityLabel: String
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HQIconView(
+                icon: icon,
+                size: 18,
+                color: DesignTokens.PaperUI.textPrimary
+            )
+            .frame(width: 40, height: 40)
+            .background(
+                isSelected
+                    ? DesignTokens.PaperUI.accent.opacity(0.2)
+                    : DesignTokens.PaperUI.surface
+            )
+            .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radius.sm))
+            .overlay(
+                RoundedRectangle(cornerRadius: DesignTokens.Radius.sm)
+                    .stroke(
+                        isSelected
+                            ? DesignTokens.PaperUI.accent
+                            : DesignTokens.PaperUI.border,
+                        lineWidth: 1
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(accessibilityLabel)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
 
@@ -111,18 +146,47 @@ struct HQTextField: View {
     }
 }
 
+/// Custom paper toggle — avoids system Toggle Liquid Glass.
 struct HQToggle: View {
     let title: DraftString
     @Binding var isOn: Bool
 
     var body: some View {
-        Toggle(isOn: $isOn) {
-            Text(title)
-                .font(DesignTokens.TypeScale.body)
-                .foregroundStyle(DesignTokens.PaperUI.textPrimary)
-                .draftHighlight()
+        Button {
+            isOn.toggle()
+        } label: {
+            HStack(spacing: DesignTokens.Space.sm) {
+                Text(title)
+                    .font(DesignTokens.TypeScale.body)
+                    .foregroundStyle(DesignTokens.PaperUI.textPrimary)
+                    .multilineTextAlignment(.leading)
+                    .draftHighlight()
+                Spacer(minLength: DesignTokens.Space.sm)
+                track
+            }
+            .contentShape(Rectangle())
         }
-        .tint(DesignTokens.PaperUI.accent)
+        .buttonStyle(.plain)
+        .accessibilityLabel(title.text)
+        .accessibilityValue(isOn ? "On" : "Off")
+        .accessibilityAddTraits(.isButton)
+    }
+
+    private var track: some View {
+        ZStack(alignment: isOn ? .trailing : .leading) {
+            Capsule()
+                .fill(isOn ? DesignTokens.PaperUI.accent : DesignTokens.PaperUI.border)
+                .frame(width: 48, height: 28)
+            Circle()
+                .fill(DesignTokens.PaperUI.surface)
+                .frame(width: 22, height: 22)
+                .overlay(
+                    Circle()
+                        .stroke(DesignTokens.PaperUI.border, lineWidth: 1)
+                )
+                .padding(3)
+        }
+        .animation(.easeInOut(duration: 0.15), value: isOn)
     }
 }
 
@@ -150,8 +214,11 @@ struct HQListRow: View {
                 }
                 Spacer()
                 if action != nil {
-                    Image(systemName: "chevron.right")
-                        .foregroundStyle(DesignTokens.PaperUI.textSecondary)
+                    HQIconView(
+                        icon: .chevronRight,
+                        size: 16,
+                        color: DesignTokens.PaperUI.textSecondary
+                    )
                 }
             }
             .padding(.vertical, DesignTokens.Space.sm)
