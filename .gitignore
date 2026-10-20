@@ -1,3 +1,31 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+*.xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
 **/.build/
 **/.swiftpm/
+Packages/.build/
+**/Package.resolved
 .swift-version
+
+# macOS
+.DS_Store
+
+# SQLite / local
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# IDE
+.idea/
+.vscode/
