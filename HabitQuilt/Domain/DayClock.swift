@@ -29,7 +29,7 @@ struct DayClock: Sendable {
     }
 
     func utcOffsetMinutes(for date: Date = Date()) -> Int {
-        timeZone.secondsFromGMT(at: date) / 60
+        timeZone.secondsFromGMT(for: date) / 60
     }
 
     func makeDayKey(for date: Date = Date()) -> LocalDayKey {
