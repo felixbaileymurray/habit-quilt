@@ -1,8 +1,8 @@
 import Foundation
 import Observation
-import HabitQuiltDomain
 
 /// App-level state over the repository. Keeps views free of SQL.
+/// Persistence models stay app-local; HabitQuiltDomain is used via `DayClock`.
 @Observable
 @MainActor
 final class AppStore {

@@ -1,7 +1,7 @@
 import SwiftUI
 import HabitQuiltDomain
 
-/// Quilt placeholder. Layout maths land in HabitQuiltDomain.
+/// Quilt placeholder shell. Full grid UI is later; layout snaps come from HabitQuiltDomain.
 struct QuiltView: View {
     @Bindable var store: AppStore
 
@@ -21,15 +21,18 @@ struct QuiltView: View {
                         HQText(draft: Copy.quiltEmpty, style: .body)
                         HQText(draft: Copy.quiltPlaceholder, style: .caption)
                             .foregroundStyle(DesignTokens.PaperUI.textSecondary)
-                        Text("Columns: \(QuiltLayout.columnCounts().map(String.init).joined(separator: ", "))")
-                            .font(DesignTokens.TypeScale.caption)
-                            .foregroundStyle(DesignTokens.PaperUI.textSecondary)
+                        Text(
+                            "Columns: "
+                                + QuiltColumnCount.snaps.map { String($0.rawValue) }.joined(separator: ", ")
+                        )
+                        .font(DesignTokens.TypeScale.caption)
+                        .foregroundStyle(DesignTokens.PaperUI.textSecondary)
                     }
                     .padding(DesignTokens.Space.md)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            // TODO(domain): LazyVGrid / Metal quilt of thumbnails, oldest-top row fill.
+            // TODO: LazyVGrid / Metal quilt of thumbnails using QuiltLayout.tiles(...)
         }
         .padding(DesignTokens.Space.lg)
         .background(DesignTokens.PaperUI.background.ignoresSafeArea())

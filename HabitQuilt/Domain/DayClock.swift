@@ -1,46 +1,35 @@
 import Foundation
 import HabitQuiltDomain
 
-/// Calendar helpers for local-day keys and midnight auto-preserve.
+/// Thin app wrapper around HabitQuiltDomain day keys + preservation rules.
 struct DayClock: Sendable {
     var calendar: Calendar
     var timeZone: TimeZone
-    var rules: any DayPreservationRules
 
     init(
         calendar: Calendar = .current,
-        timeZone: TimeZone = .current,
-        rules: any DayPreservationRules = DefaultDayPreservationRules()
+        timeZone: TimeZone = .current
     ) {
         var cal = calendar
         cal.timeZone = timeZone
         self.calendar = cal
         self.timeZone = timeZone
-        self.rules = rules
     }
 
     /// Local calendar date string `YYYY-MM-DD`.
     func localDateString(for date: Date = Date()) -> String {
-        let comps = calendar.dateComponents([.year, .month, .day], from: date)
-        let y = comps.year ?? 0
-        let m = comps.month ?? 0
-        let d = comps.day ?? 0
-        return String(format: "%04d-%02d-%02d", y, m, d)
+        DayKey(date: date, timeZone: timeZone).rawValue
     }
 
-    func utcOffsetMinutes(for date: Date = Date()) -> Int {
-        timeZone.secondsFromGMT(for: date) / 60
-    }
-
-    func makeDayKey(for date: Date = Date()) -> LocalDayKey {
-        LocalDayKey(
-            dateString: localDateString(for: date),
-            utcOffsetMinutes: utcOffsetMinutes(for: date)
-        )
+    func makeDayKey(for date: Date = Date()) -> DayKey {
+        DayKey(date: date, timeZone: timeZone)
     }
 
     func editability(of dayDate: String, relativeTo now: Date = Date()) -> DayEditability {
-        rules.editability(dayDate: dayDate, today: localDateString(for: now))
+        guard let day = DayKey.parse(dayDate, utcOffsetSeconds: timeZone.secondsFromGMT(for: now)) else {
+            return .preserved
+        }
+        return PreservationRules.editability(of: day, now: now, timeZone: timeZone)
     }
 
     /// Start of the next local calendar day after `date`.
@@ -57,14 +46,24 @@ struct DayClock: Sendable {
     ) -> String? {
         let previousDay = localDateString(for: previousNow)
         let newDay = localDateString(for: newNow)
-        guard rules.shouldAutoPreserveAtMidnight(
-            openSessionDay: openSessionDay,
-            previousCalendarDay: previousDay,
-            newCalendarDay: newDay
+        guard previousDay != newDay else { return nil }
+        guard let previousKey = DayKey.parse(
+            previousDay,
+            utcOffsetSeconds: timeZone.secondsFromGMT(for: previousNow)
         ) else {
             return nil
         }
-        return openSessionDay
+        let openKey = DayKey.parse(
+            openSessionDay,
+            utcOffsetSeconds: timeZone.secondsFromGMT(for: previousNow)
+        )
+        let result = PreservationRules.midnightAutoPreserve(
+            openSessionDay: openKey,
+            previousLocalDay: previousKey,
+            now: newNow,
+            timeZone: timeZone
+        )
+        return result.shouldPreserveOpenSession ? result.dayThatEnded.rawValue : nil
     }
 }
 

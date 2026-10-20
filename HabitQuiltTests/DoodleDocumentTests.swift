@@ -7,12 +7,16 @@ final class DoodleDocumentTests: XCTestCase {
         let doc = DoodleDocument(
             v: 1,
             paletteId: "riso-2026a",
-            paper: "light",
+            paper: .light,
             ops: [
-                DoodleOp(t: "stroke", tool: "pen", ink: "blue", pts: [[0, 0, 0.5, 0]]),
+                .stroke(
+                    tool: .pen,
+                    ink: .blue,
+                    points: [StrokePoint(x: 0, y: 0, pressure: 0.5, ms: 0)]
+                ),
             ]
         )
-        let data = try JSONEncoder().encode(doc)
+        let data = try doc.encodeJSON()
         let json = try XCTUnwrap(String(data: data, encoding: .utf8))
         XCTAssertFalse(json.lowercased().contains("dot"))
         XCTAssertFalse(json.lowercased().contains("grid"))
@@ -24,5 +28,6 @@ final class DoodleDocumentTests: XCTestCase {
         XCTAssertNotNil(object?["ops"])
         XCTAssertNil(object?["dotGrid"])
         XCTAssertNil(object?["dot_grid"])
+        XCTAssertFalse(DoodleDocument.containsForbiddenKeys(object as Any))
     }
 }

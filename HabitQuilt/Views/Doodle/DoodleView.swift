@@ -1,14 +1,14 @@
 import SwiftUI
 import DoodleCanvas
-import HabitQuiltDomain
 
-/// Doodle screen shell. Real strokes live in `DoodleCanvas` (sibling package).
+/// Doodle screen. Hosts `DoodleCanvasRepresentable`; persistence stays in the app store.
 struct DoodleView: View {
     @Bindable var store: AppStore
     @Binding var path: NavigationPath
 
     /// Session-only toggle — never written into doodle JSON.
     @State private var dotGridVisible = false
+    @State private var session = DoodleSession()
 
     private var isEditable: Bool {
         guard let day = store.todayDay else { return true }
@@ -22,30 +22,34 @@ struct DoodleView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
 
-            DoodleCanvasPlaceholderView(dotGridVisible: $dotGridVisible)
-                .frame(maxWidth: .infinity)
-                .aspectRatio(1, contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radius.md))
-                .overlay(
-                    RoundedRectangle(cornerRadius: DesignTokens.Radius.md)
-                        .stroke(DesignTokens.PaperUI.border, lineWidth: 1)
+            DoodleCanvasRepresentable(
+                session: session,
+                configuration: DoodleCanvasConfiguration(
+                    showsDotGrid: dotGridVisible,
+                    isInteractive: isEditable
                 )
-                .disabled(!isEditable)
+            )
+            .frame(maxWidth: .infinity)
+            .aspectRatio(1, contentMode: .fit)
+            .clipShape(RoundedRectangle(cornerRadius: DesignTokens.Radius.md))
+            .overlay(
+                RoundedRectangle(cornerRadius: DesignTokens.Radius.md)
+                    .stroke(DesignTokens.PaperUI.border, lineWidth: 1)
+            )
+            .allowsHitTesting(isEditable)
 
             // UI-only drawing aid; not persisted in doodle documents.
             HQToggle(title: Copy.doodleDotGrid, isOn: $dotGridVisible)
                 .disabled(!isEditable)
-
-            HQText(draft: Copy.doodlePlaceholder, style: .caption)
-                .foregroundStyle(DesignTokens.PaperUI.textSecondary)
+                .onChange(of: dotGridVisible) { _, visible in
+                    session.ui.showsDotGrid = visible
+                }
 
             Spacer()
 
             HQButton(title: Copy.doodleDone, kind: .primary) {
-                // TODO(canvas): export real document from DoodleCanvasHosting.
-                let stub = DoodleDocument(paper: "light", ops: [])
-                if let data = try? JSONEncoder().encode(stub),
-                   let json = String(data: data, encoding: .utf8) {
+                // Persist canvas document JSON (no dot-grid field).
+                if let json = try? DoodleCodec.encodeString(session.document) {
                     store.saveDoodleJSON(json)
                 }
                 store.endDoodleSession()
@@ -59,10 +63,12 @@ struct DoodleView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             dotGridVisible = store.doodleDotGridVisible
+            session.ui.showsDotGrid = dotGridVisible
             store.beginTodayDoodle()
-        }
-        .onDisappear {
-            // Keep session open only while on doodle; midnight coordinator uses openDoodleSessionDay.
+            if let json = store.todayDay?.doodleJSON,
+               let document = try? DoodleCodec.decode(json: json) {
+                session.replaceDocument(document)
+            }
         }
     }
 }
