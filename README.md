@@ -18,8 +18,8 @@ Feel / drawing / quilt UX must be judged on a real Mac + iPhone. Cloud agents do
 | --- | --- |
 | `HabitQuilt/` | App target — navigation, screens, tokens, copy, SQLite repo |
 | `HabitQuiltTests/` | Pure logic unit tests (day preserve, midnight, repository) |
-| `Packages/HabitQuiltDomain/` | Domain package (sibling-owned; stub APIs for SPM) |
-| `Packages/DoodleCanvas/` | Canvas package (sibling-owned; stub APIs for SPM) |
+| `Packages/HabitQuiltDomain/` | Day keys, preserve/midnight rules, quilt layout, portable doodle schema |
+| `Packages/DoodleCanvas/` | Metal+CG canvas, `DoodleSession`, codec, thumbnails |
 | `.github/workflows/ios.yml` | PR → `dev`: `xcodebuild` build + unit tests on `macos-latest` |
 
 ## Git

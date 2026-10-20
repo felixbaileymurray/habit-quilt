@@ -17,6 +17,8 @@
 		B20000000000000000000008 /* SQLiteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* SQLiteStore.swift */; };
 		B20000000000000000000009 /* HabitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* HabitRepository.swift */; };
 		B2000000000000000000000A /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* DayClock.swift */; };
+		B20000000000000000000011 /* QuiltMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* QuiltMapping.swift */; };
+		B20000000000000000000012 /* ThumbnailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* ThumbnailStore.swift */; };
 		B2000000000000000000000B /* HQComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* HQComponents.swift */; };
 		B2000000000000000000000C /* HabitSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* HabitSetupView.swift */; };
 		B2000000000000000000000D /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* TodayView.swift */; };
@@ -32,6 +34,7 @@
 		A10000000000000000000037 /* DoodleCanvas in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000035 /* DoodleCanvas */; };
 		A10000000000000000000038 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000039 /* libsqlite3.tbd */; };
 		A1000000000000000000003A /* HabitQuiltDomain in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000003B /* HabitQuiltDomain */; };
+		A1000000000000000000003C /* DoodleCanvas in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000003D /* DoodleCanvas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,8 @@
 		B10000000000000000000008 /* SQLiteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteStore.swift; sourceTree = "<group>"; };
 		B10000000000000000000009 /* HabitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRepository.swift; sourceTree = "<group>"; };
 		B1000000000000000000000A /* DayClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayClock.swift; sourceTree = "<group>"; };
+		B10000000000000000000011 /* QuiltMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuiltMapping.swift; sourceTree = "<group>"; };
+		B10000000000000000000012 /* ThumbnailStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailStore.swift; sourceTree = "<group>"; };
 		B1000000000000000000000B /* HQComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQComponents.swift; sourceTree = "<group>"; };
 		B1000000000000000000000C /* HabitSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitSetupView.swift; sourceTree = "<group>"; };
 		B1000000000000000000000D /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1000000000000000000003A /* HabitQuiltDomain in Frameworks */,
+				A1000000000000000000003C /* DoodleCanvas in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +166,7 @@
 				B10000000000000000000007 /* Migrations.swift */,
 				B10000000000000000000008 /* SQLiteStore.swift */,
 				B10000000000000000000009 /* HabitRepository.swift */,
+				B10000000000000000000012 /* ThumbnailStore.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				B1000000000000000000000A /* DayClock.swift */,
+				B10000000000000000000011 /* QuiltMapping.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -293,6 +301,7 @@
 			name = HabitQuiltTests;
 			packageProductDependencies = (
 				A1000000000000000000003B /* HabitQuiltDomain */,
+				A1000000000000000000003D /* DoodleCanvas */,
 			);
 			productName = HabitQuiltTests;
 			productReference = A1000000000000000000000A /* HabitQuiltTests.xctest */;
@@ -367,6 +376,8 @@
 				B20000000000000000000008 /* SQLiteStore.swift in Sources */,
 				B20000000000000000000009 /* HabitRepository.swift in Sources */,
 				B2000000000000000000000A /* DayClock.swift in Sources */,
+				B20000000000000000000011 /* QuiltMapping.swift in Sources */,
+				B20000000000000000000012 /* ThumbnailStore.swift in Sources */,
 				B2000000000000000000000B /* HQComponents.swift in Sources */,
 				B2000000000000000000000C /* HabitSetupView.swift in Sources */,
 				B2000000000000000000000D /* TodayView.swift in Sources */,
@@ -599,6 +610,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A10000000000000000000030 /* XCLocalSwiftPackageReference "Packages/HabitQuiltDomain" */;
 			productName = HabitQuiltDomain;
+		};
+		A1000000000000000000003D /* DoodleCanvas */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10000000000000000000031 /* XCLocalSwiftPackageReference "Packages/DoodleCanvas" */;
+			productName = DoodleCanvas;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
