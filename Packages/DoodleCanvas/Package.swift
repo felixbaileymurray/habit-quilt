@@ -16,8 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "DoodleCanvas",
-            path: "Sources/DoodleCanvas",
-            resources: []
+            path: "Sources/DoodleCanvas"
         ),
         .testTarget(
             name: "DoodleCanvasTests",
